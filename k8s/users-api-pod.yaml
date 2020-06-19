@@ -9,4 +9,4 @@ spec:
     - name: users-api
       image: guuhworship/users-api
       ports:
-        -containerPort: 4000
+        - containerPort: 4000
