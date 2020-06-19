@@ -2,26 +2,26 @@
 # from environment variables. You can also hardcode secrets,
 # although such is generally not recommended and you have to
 # remember to add this file to your .gitignore.
-use Mix.Config
+import Config
 
-database_url =
-  System.get_env("DATABASE_URL") ||
-    raise """
-    environment variable DATABASE_URL is missing.
-    For example: ecto://USER:PASS@HOST/DATABASE
-    """
+database_url = "postgres://ahixebrt:k8qJv_ZE7JhyLbtKuPtOxvIlb2NvP_F5@ruby.db.elephantsql.com:5432/ahixebrt"
+  # System.get_env("DATABASE_URL") ||
+  #   raise """
+  #   environment variable DATABASE_URL is missing.
+  #   For example: ecto://USER:PASS@HOST/DATABASE
+  #   """
 
 config :users_api, UsersApi.Repo,
-  # ssl: true,
+  ssl: true,
   url: database_url,
-  pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10")
+  pool_size: String.to_integer(System.get_env("POOL_SIZE") || "2")
 
-secret_key_base =
-  System.get_env("SECRET_KEY_BASE") ||
-    raise """
-    environment variable SECRET_KEY_BASE is missing.
-    You can generate one by calling: mix phx.gen.secret
-    """
+secret_key_base = "cspB/6bZ3cGy7Gmkc/daynx68zwbH7OcE6A2OYlBtfAYN6vdHMmUxuH3EyFD/3GF"
+  # System.get_env("SECRET_KEY_BASE") ||
+  #   raise """
+  #   environment variable SECRET_KEY_BASE is missing.
+  #   You can generate one by calling: mix phx.gen.secret
+  #   """
 
 config :users_api, UsersApiWeb.Endpoint,
   http: [
@@ -35,7 +35,7 @@ config :users_api, UsersApiWeb.Endpoint,
 # If you are doing OTP releases, you need to instruct Phoenix
 # to start each relevant endpoint:
 #
-#     config :users_api, UsersApiWeb.Endpoint, server: true
+config :users_api, UsersApiWeb.Endpoint, server: true
 #
 # Then you can assemble a release by calling `mix release`.
 # See `mix help release` for more information.
