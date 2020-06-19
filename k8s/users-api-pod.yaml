@@ -7,6 +7,6 @@ metadata:
 spec:
   containers:
     - name: users-api
-      image: guuhworship/users-api
+      image: guuhworship/users_api
       ports:
         - containerPort: 4000
