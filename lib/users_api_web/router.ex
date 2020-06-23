@@ -7,6 +7,7 @@ defmodule UsersApiWeb.Router do
 
   scope "/api", UsersApiWeb do
     resources "/users", UserController, except: [:new, :edit]
+    resources "/todos", TodoController, except: [:new, :edit]
     pipe_through :api
   end
 
